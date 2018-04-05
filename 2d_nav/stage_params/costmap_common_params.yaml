@@ -1,0 +1,35 @@
+obstacle_range: 2.5
+raytrace_range: 3.0
+inflation_radius: 0.50
+transform_tolerance: 0.3
+robot_base_frame: /base_link
+
+footprint: [
+  [0.3302, -0.0508],
+  [0.254, -0.0508],
+  [0.254, -0.254],
+  [-0.254, -0.254],
+  [-0.254, 0.254],
+  [0.254, 0.254],
+  [0.254, 0.0508],
+  [0.3302, 0.0508]
+]
+
+observation_sources: laser_scan_sensor point_cloud_sensor
+
+laser_scan_sensor: {
+  sensor_frame: /base_laser_link,
+  data_type: LaserScan,
+  topic: base_scan,
+  marking: true,
+  clearing: true,
+  inf_is_valid: true
+  }
+
+point_cloud_sensor: {
+  sensor_frame: /camera,
+  data_type: PointCloud2,
+  topic: /camera/depth_registered/points,
+  marking: true,
+  clearing: true
+  }
